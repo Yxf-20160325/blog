@@ -1,0 +1,217 @@
+:root{
+  --bg:#fbfbfa; --surface:#ffffff; --text:#23272e; --muted:#8a909a;
+  --accent:#3b6ef5; --accent-soft:#eaf0ff; --border:#ececf0; --radius:12px;
+  --maxw:760px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.7;font-size:16px;}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;gap:18px;height:58px}
+.brand{font-weight:700;font-size:18px;color:var(--text);margin-right:auto}
+.nav-links{display:flex;gap:18px}
+.nav-links a{color:var(--muted);font-size:15px}
+.nav-links a.active,.nav-links a:hover{color:var(--accent);text-decoration:none}
+.nav-toggle{display:none;background:none;border:0;font-size:22px;cursor:pointer;color:var(--text)}
+.main{padding:36px 20px 64px;min-height:60vh}
+.site-footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+.site-footer .muted{margin:4px 0 0}
+.muted{color:var(--muted)}
+.dot{margin:0 8px;color:var(--muted)}
+
+.page-head{margin-bottom:24px}
+.page-head h1{font-size:26px;margin:0 0 4px}
+
+.post-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px 22px;margin-bottom:16px;transition:box-shadow .2s,transform .2s}
+.post-card:hover{box-shadow:0 6px 22px rgba(30,40,80,.08);transform:translateY(-2px)}
+.post-title{font-size:20px;margin:0 0 8px;line-height:1.4}
+.post-title a{color:var(--text)}
+.post-meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+.post-summary{margin:0 0 14px;color:#4a505a}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-block;background:var(--accent-soft);color:var(--accent);
+  font-size:13px;padding:3px 10px;border-radius:999px}
+.tag:hover{text-decoration:none;filter:brightness(.97)}
+.tag-lg{font-size:15px;padding:6px 14px}
+.tag .count{opacity:.7;font-size:12px}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:12px}
+
+.pagination{display:flex;align-items:center;justify-content:space-between;margin-top:28px}
+.page-btn{background:var(--surface);border:1px solid var(--border);border-radius:999px;
+  padding:8px 16px;color:var(--text);font-size:14px}
+.page-btn:hover{text-decoration:none;border-color:var(--accent);color:var(--accent)}
+.page-info{color:var(--muted);font-size:14px}
+
+.post{max-width:var(--maxw)}
+.post-header{margin-bottom:28px;border-bottom:1px solid var(--border);padding-bottom:20px}
+.post-header h1{font-size:30px;margin:0 0 10px;line-height:1.3}
+.post-content{font-size:17px;line-height:1.85}
+.post-content h2{font-size:24px;margin:36px 0 14px;padding-top:6px}
+.post-content h3{font-size:20px;margin:28px 0 12px}
+.post-content p{margin:14px 0}
+.post-content img{max-width:100%;border-radius:8px;display:block;margin:18px 0}
+.post-content blockquote{margin:18px 0;padding:10px 18px;border-left:4px solid var(--accent);
+  background:var(--accent-soft);color:#3a4250;border-radius:0 8px 8px 0}
+.post-content ul,.post-content ol{padding-left:24px;margin:14px 0}
+.post-content li{margin:6px 0}
+.post-content table{border-collapse:collapse;width:100%;margin:18px 0;font-size:15px}
+.post-content th,.post-content td{border:1px solid var(--border);padding:9px 12px;text-align:left}
+.post-content th{background:var(--accent-soft);font-weight:600}
+.post-content pre.hljs{padding:16px 18px;border-radius:10px;overflow:auto;font-size:14px;line-height:1.6;margin:18px 0}
+.post-content pre.hljs code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;background:none;padding:0}
+.post-content :not(pre) > code{background:#f1f2f4;color:#c0341d;padding:2px 6px;border-radius:5px;font-size:14px;
+  font-family:"SFMono-Regular",Consolas,Menlo,monospace}
+.related{margin-top:40px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:18px 22px}
+.related h3{margin:0 0 10px;font-size:18px}
+.related ul{margin:0;padding-left:20px}
+.related li{margin:8px 0}
+.back{margin-top:28px}
+.about{max-width:var(--maxw)}
+
+.search-box input{width:100%;padding:14px 16px;font-size:16px;border:1px solid var(--border);
+  border-radius:10px;background:var(--surface);color:var(--text);margin-bottom:8px}
+.search-box input:focus{outline:none;border-color:var(--accent)}
+.search-results{margin-top:20px}
+.result-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 18px;margin-bottom:14px}
+.result-item h3{margin:0 0 6px;font-size:18px}
+.result-item .post-meta{margin-bottom:8px}
+mark{background:#fff3a8;padding:0 2px;border-radius:3px}
+
+@media (max-width:640px){
+  body{font-size:15px}
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:58px;left:0;right:0;flex-direction:column;
+    background:var(--surface);border-bottom:1px solid var(--border);padding:10px 20px;gap:4px}
+  .nav-links.open{display:flex}
+  .main{padding:24px 16px 48px}
+  .post-content{font-size:16px}
+  .post-header h1{font-size:24px}
+}
+/* highlight.js github-dark */
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: GitHub Dark
+  Description: Dark theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-dark
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  color: #c9d1d9;
+  background: #0d1117
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #ff7b72
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #d2a8ff
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #79c0ff
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #a5d6ff
+}
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #ffa657
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #8b949e
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #7ee787
+}
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #c9d1d9
+}
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #1f6feb;
+  font-weight: bold
+}
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #f2cc60
+}
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #c9d1d9;
+  font-style: italic
+}
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #c9d1d9;
+  font-weight: bold
+}
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #aff5b4;
+  background-color: #033a16
+}
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #ffdcd7;
+  background-color: #67060c
+}
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+  
+}

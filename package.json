@@ -1,0 +1,10 @@
+{
+  "name": "qingfeng-blog",
+  "version": "1.0.0",
+  "description": "个人博客静态站点（Markdown 写作 + 标签 + 搜索 + 响应式）",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node server.js"
+  }
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>搜索 · 清风博客</title>
+<meta name="description" content="一个记录开发、设计与思考的个人博客">
+<link rel="stylesheet" href="assets/style.css">
+<script>window.__SEARCH__ = true;</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">清风博客</a>
+    <button class="nav-toggle" aria-label="菜单">☰</button>
+    <nav class="nav-links">
+      <a href="index.html" class="">首页</a>
+      <a href="tags/index.html" class="">标签</a>
+      <a href="about.html" class="">关于</a>
+      <a href="search.html" class="active">搜索</a>
+    </nav>
+  </div>
+</header>
+<main class="container main">
+<div class="page-head"><h1>搜索</h1></div>
+  <div class="search-box">
+    <input id="q" type="search" placeholder="输入关键词，按标题或内容检索…" autofocus>
+    <p class="muted" id="hint">共 6 篇可检索文章</p>
+  </div>
+  <div id="results" class="search-results"></div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 清风 · 清风博客</p>
+    <p class="muted">使用静态站点生成器构建 · 支持 Markdown 写作</p>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>

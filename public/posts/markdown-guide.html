@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markdown 写作速查表 · 清风博客</title>
+<meta name="description" content="一个记录开发、设计与思考的个人博客">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html">清风博客</a>
+    <button class="nav-toggle" aria-label="菜单">☰</button>
+    <nav class="nav-links">
+      <a href="../index.html" class="active">首页</a>
+      <a href="../tags/index.html" class="">标签</a>
+      <a href="../about.html" class="">关于</a>
+      <a href="../search.html" class="">搜索</a>
+    </nav>
+  </div>
+</header>
+<main class="container main">
+<article class="post">
+  <header class="post-header">
+    <h1>Markdown 写作速查表</h1>
+    <div class="post-meta">
+      <time>2026-09-07</time>
+      <span class="dot">·</span>
+      <span>1 分钟阅读</span>
+    </div>
+    <div class="tags"><a class="tag" href="../tags/%E6%95%99%E7%A8%8B.html">教程</a><a class="tag" href="../tags/Markdown.html">Markdown</a></div>
+  </header>
+  <div class="post-content">
+<h1>Markdown 写作速查表</h1>
+<p>本文档覆盖本站支持的全部常用语法，方便写作时查阅。</p>
+<h2>标题层级</h2>
+<pre class="hljs"><code><span class="hljs-section"># 一级标题</span>
+<span class="hljs-section">## 二级标题</span>
+<span class="hljs-section">### 三级标题</span>
+</code></pre>
+
+<h2>强调与行内代码</h2>
+<p>使用 <code>行内代码</code> 包裹短代码片段，用 <strong>加粗</strong> 与 <em>斜体</em> 强调文字。</p>
+<h2>列表</h2>
+<p>无序列表：</p>
+<ul>
+<li>苹果</li>
+<li>香蕉
+<ul>
+<li>子项也可以缩进</li>
+</ul>
+</li>
+</ul>
+<p>有序列表：</p>
+<ol>
+<li>第一步</li>
+<li>第二步</li>
+<li>第三步</li>
+</ol>
+<h2>代码块（带语法高亮）</h2>
+<pre class="hljs"><code><span class="hljs-keyword">def</span> <span class="hljs-title function_">fib</span>(<span class="hljs-params">n</span>):
+    a, b = <span class="hljs-number">0</span>, <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):
+        a, b = b, a + b
+    <span class="hljs-keyword">return</span> a
+
+<span class="hljs-built_in">print</span>([fib(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>)])
+</code></pre>
+
+<pre class="hljs"><code><span class="hljs-comment"># 构建本站</span>
+NODE_PATH=/path/to/node_modules node build.js
+</code></pre>
+
+<h2>表格</h2>
+<table>
+<thead>
+<tr>
+<th>语言</th>
+<th>类型</th>
+<th>难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JavaScript</td>
+<td>动态</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Rust</td>
+<td>系统</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>动态</td>
+<td>低</td>
+</tr>
+</tbody>
+</table>
+<h2>图片与链接</h2>
+<p><img src="https://picsum.photos/seed/blog/800/360" alt="示意图"></p>
+<p>更多语法见 <a href="https://commonmark.org/">CommonMark 规范</a>。</p>
+
+  </div>
+  <aside class="related">
+    <h3>相关文章</h3>
+    <ul><li><a href="../posts/node-static-site.html">用 Node.js 写一个极简静态站点生成器</a>
+    <span class="muted"> · 2026-09-05</span></li><li><a href="../posts/tag-system.html">给博客加上多标签分类</a>
+    <span class="muted"> · 2026-09-04</span></li><li><a href="../posts/hello-world.html">你好，世界：我的博客开张了</a>
+    <span class="muted"> · 2026-09-08</span></li></ul>
+  </aside>
+  <p class="back"><a href="../index.html">← 返回文章列表</a></p>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 清风 · 清风博客</p>
+    <p class="muted">使用静态站点生成器构建 · 支持 Markdown 写作</p>
+  </div>
+</footer>
+<script src="../assets/main.js"></script>
+</body>
+</html>

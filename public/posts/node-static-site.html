@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 Node.js 写一个极简静态站点生成器 · 清风博客</title>
+<meta name="description" content="一个记录开发、设计与思考的个人博客">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="../index.html">清风博客</a>
+    <button class="nav-toggle" aria-label="菜单">☰</button>
+    <nav class="nav-links">
+      <a href="../index.html" class="active">首页</a>
+      <a href="../tags/index.html" class="">标签</a>
+      <a href="../about.html" class="">关于</a>
+      <a href="../search.html" class="">搜索</a>
+    </nav>
+  </div>
+</header>
+<main class="container main">
+<article class="post">
+  <header class="post-header">
+    <h1>用 Node.js 写一个极简静态站点生成器</h1>
+    <div class="post-meta">
+      <time>2026-09-05</time>
+      <span class="dot">·</span>
+      <span>1 分钟阅读</span>
+    </div>
+    <div class="tags"><a class="tag" href="../tags/Node.js.html">Node.js</a><a class="tag" href="../tags/%E6%95%99%E7%A8%8B.html">教程</a><a class="tag" href="../tags/%E5%89%8D%E7%AB%AF.html">前端</a></div>
+  </header>
+  <div class="post-content">
+<h1>用 Node.js 写一个极简静态站点生成器</h1>
+<p>静态站点生成器的本质只有三步：读源文件、转换、写输出。</p>
+<h2>读取 Markdown</h2>
+<p>使用 <code>gray-matter</code> 解析 frontmatter，<code>markdown-it</code> 渲染正文。</p>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> matter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;gray-matter&#x27;</span>);
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);
+
+<span class="hljs-keyword">const</span> raw = fs.<span class="hljs-title function_">readFileSync</span>(<span class="hljs-string">&#x27;posts/a.md&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>);
+<span class="hljs-keyword">const</span> { data, content } = <span class="hljs-title function_">matter</span>(raw);
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data.<span class="hljs-property">title</span>, data.<span class="hljs-property">tags</span>);
+</code></pre>
+
+<h2>渲染与高亮</h2>
+<pre class="hljs"><code><span class="hljs-keyword">const</span> <span class="hljs-title class_">MarkdownIt</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;markdown-it&#x27;</span>);
+<span class="hljs-keyword">const</span> hljs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;highlight.js&#x27;</span>);
+<span class="hljs-keyword">const</span> md = <span class="hljs-keyword">new</span> <span class="hljs-title class_">MarkdownIt</span>({
+  <span class="hljs-attr">html</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-title function_">highlight</span>(<span class="hljs-params">str, lang</span>) {
+    <span class="hljs-keyword">if</span> (lang &amp;&amp; hljs.<span class="hljs-title function_">getLanguage</span>(lang)) {
+      <span class="hljs-keyword">return</span> hljs.<span class="hljs-title function_">highlight</span>(str, { <span class="hljs-attr">language</span>: lang }).<span class="hljs-property">value</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>;
+  }
+});
+</code></pre>
+
+<h2>写出页面</h2>
+<p>遍历文章数组，套用布局模板，写入 <code>public/</code> 目录即可。</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>输入</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解析</td>
+<td><code>posts/*.md</code></td>
+<td>文章对象数组</td>
+</tr>
+<tr>
+<td>渲染</td>
+<td>文章对象</td>
+<td>HTML 字符串</td>
+</tr>
+<tr>
+<td>发布</td>
+<td>HTML 字符串</td>
+<td><code>public/*.html</code></td>
+</tr>
+</tbody>
+</table>
+<p>整个过程无需数据库，部署到任意静态托管即可。</p>
+
+  </div>
+  <aside class="related">
+    <h3>相关文章</h3>
+    <ul><li><a href="../posts/tag-system.html">给博客加上多标签分类</a>
+    <span class="muted"> · 2026-09-04</span></li><li><a href="../posts/search-impl.html">纯前端实现博客全文搜索</a>
+    <span class="muted"> · 2026-09-03</span></li><li><a href="../posts/markdown-guide.html">Markdown 写作速查表</a>
+    <span class="muted"> · 2026-09-07</span></li></ul>
+  </aside>
+  <p class="back"><a href="../index.html">← 返回文章列表</a></p>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2026 清风 · 清风博客</p>
+    <p class="muted">使用静态站点生成器构建 · 支持 Markdown 写作</p>
+  </div>
+</footer>
+<script src="../assets/main.js"></script>
+</body>
+</html>
