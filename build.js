@@ -297,12 +297,12 @@ function buildAbout() {
 function buildSearch(posts) {
   const index = posts.map((p) => ({
     title: p.title,
-    url: `posts/${p.slug}.html`,
+    url: `post/${p.slug}`,
     tags: p.tags,
     summary: p.summary,
     text: p.text,
   }));
-  fs.writeFileSync(path.join(ASSETS_DIR, 'search-index.json'), JSON.stringify(index));
+  fs.writeFileSync(path.join(OUT_DIR, 'search-index.json'), JSON.stringify(index));
   const body = `<div class="page-head"><h1>搜索</h1></div>
   <div class="search-box">
     <input id="q" type="search" placeholder="输入关键词，按标题或内容检索…" autofocus>
@@ -437,7 +437,7 @@ const MAIN_JS = `(function(){
   var box=document.getElementById('results');
   var hint=document.getElementById('hint');
   var data=null;
-  fetch('assets/search-index.json').then(function(r){return r.json();}).then(function(j){data=j;}).catch(function(e){
+  fetch('search-index.json').then(function(r){return r.json();}).then(function(j){data=j;}).catch(function(e){
     box.innerHTML='<p class="muted">搜索索引加载失败。</p>';
   });
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}

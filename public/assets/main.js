@@ -7,7 +7,7 @@
   var box=document.getElementById('results');
   var hint=document.getElementById('hint');
   var data=null;
-  fetch('assets/search-index.json').then(function(r){return r.json();}).then(function(j){data=j;}).catch(function(e){
+  fetch('search-index.json').then(function(r){return r.json();}).then(function(j){data=j;}).catch(function(e){
     box.innerHTML='<p class="muted">搜索索引加载失败。</p>';
   });
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
