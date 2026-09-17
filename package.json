@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "node build.js",
+    "start": "node server.js",
     "serve": "node server.js"
   }
 }
